@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> SYSTEMFLASH5 | Tecnología </title>
+
+  <!-- ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif}
+    body{background:#a0a0a0;color:#000000}
+    
+    header{ position:sticky; top:0;z-index:1000; background:#ffffff; display:flex;align-items:center;
+      justify-content:space-between; padding:10px ;}
+     header img{ top: 0px; width:180px; height:auto; }
+    header h1{font-size:30px;}
+ 
+    .hero{
+      background:#1a2040;
+      color:#ffffff;text-align:center;padding:50px 20px
+    }
+    .hero h2{font-size:28px;margin-bottom:10px}
+    .hero p{opacity:.85;font-size:18px}
+
+    .container{max-width:1200px;margin:auto;padding:40px 20px}
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:10px
+    }
+
+    .card{ padding: 2px;
+      background:#fff;border-radius:14px;overflow:hidden;
+      box-shadow:0 8px 10px rgba(0,0,0,.08);
+      transition:.3s; margin: 8px;
+    }
+    .card:hover{transform:translateY(-5px)}
+
+    .card img{width:100%; height:150px; object-fit:cover}
+    .card .info{padding:0px}
+    .card h3{font-size:18px; margin-bottom:10px;}
+    .price{font-weight:0;color:#0071e3;font-size:18px}
+
+    .btn{
+      display:inline-block;margin:12px;padding:10px 15px;
+      background:#0071e3;color:#fff;border-radius:8px;
+      text-decoration:none;border:none;cursor:pointer;
+    }
+    .btn:hover{background:#005bb5}
+
+    /* CARRITO */
+    .cart{
+      position:fixed;right:20px;bottom:20px;
+      background:#fff;width:300px;border-radius:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.2);
+      padding:15px;display:none;flex-direction:column
+    }
+    .cart h3{text-align:center;margin-bottom:10px}
+    .cart ul{list-style:none;max-height:200px;overflow:auto}
+    .cart li{font-size:14px;margin-bottom:6px}
+
+    .cart button{margin-top:10px;width:100%}
+
+    .cart-btn{
+      position:fixed;right:20px;bottom:20px;
+      background:#0071e3;color:#fff;
+      width:60px;height:60px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:22px;cursor:pointer;z-index:999
+    }
+
+    footer{
+      background:#1a2040;color:#ffffff;text-align:center;
+      padding:20px;margin-top:40px
+    }
+  </style>
+</head>
+<body>
+
+
+
+<header>
+<img src="logo2.jpeg" alt="Logo">
+<h1> SYSTEM FLASH5 | Tienda Online </h1>
+<nav class="apple-menu">
+  <a href="systemflash.html"><i class="fa-regular ">🏠</i><span>Inicio</span></a>
+<a href=""><i class="fa-regular "></i><span></span></a>
+<a href=""><i class="fa-regular "></i><span></span></a>
+<a href=""><i class="fa-regular "></i><span></span></a>
+</nav>
+
+<style>
+.apple-menu{ display:flex; gap:26px;}
+.apple-menu a{ color:#000000; margin-left:20px; text-decoration:none; font-weight:500;}
+.apple-menu i{ font-size:30px; display:block; margin-bottom:4px;text-align: center;}
+</style>
+</header>
+<section class="hero">
+  <h2> SYSTEM FLASH5 | Tienda Online | Tecnología</h2>
+  <p>Celulares · Laptops · Accesorios · Componentes .</p>
+</section>
+
+<section class="container" id="productos">
+  <h2 style="margin-bottom:20px">🛍️ Productos🛍️ </h2>
+
+  <div class="products">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+      
+  <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+
+
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+
+
+      <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+      <div class="info">
+        <h3>Smartphone Pro</h3>
+        <p class="price">$8,999 MXN</p>
+        <button class="btn" onclick="addToCart('Smartphone Pro - $8,999')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" />
+      <div class="info">
+        <h3>Laptop Ultra</h3>
+        <p class="price">$18,500 MXN</p>
+        <button class="btn" onclick="addToCart('Laptop Ultra - $18,500')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155228f6c0" />
+      <div class="info">
+        <h3>Audífonos Bluetooth</h3>
+        <p class="price">$1,299 MXN</p>
+        <button class="btn" onclick="addToCart('Audífonos - $1,299')">Agregar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+     <div class="card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" />
+      <div class="info">
+        <h3>Smartwatch</h3>
+        <p class="price">$2,499 MXN</p>
+        <button class="btn" onclick="addToCart('Smartwatch - $2,499')">Agregar</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTÓN CARRITO -->
+<div class="cart-btn" onclick="toggleCart()">
+  <i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+<!-- CARRITO -->
+<div class="cart" id="cart">
+  <h3>Carrito</h3>
+  <ul id="cartItems"></ul>
+  <button class="btn" onclick="sendWhatsApp()">Enviar pedido por WhatsApp</button>
+</div>
+
+<footer id="contacto">
+   <h2 style="padding: 4px;"> SYSTEM FLASH5 | Tienda Online | Tecnología</h2>
+  <p style="padding:4px;">
+ · Celulares · SIM ·Laptops  ·audífonos · bocinas · smartwatches · teclados · mouse · webcams · memorias USB  · 
+ · discos externos · cables HDMI/USB·memoria RAM · discos HDD/SSD/NVMe · tarjetas gráficas · procesadores · 
+ · tarjetas madre · fuentes de poder · ventiladores · USB · USB-C · carga rápida · inalámbricos · adaptadores ·
+ · power bank · Micas · vidrio templado · anti-espía · mate · hidrogel · protectores de cámara ·Fundas · silicona · 
+ ·rígidas · transparentes · antigolpes · tipo libro · con soporte · chips · recargas · planes prepago ·Laptops gamer
+</p>
+<br>
+ <p style="padding: 4px;">©  2026  SYSTEMFLASH5 | Tienda Online - Todos los derechos reservados</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function addToCart(product){
+    cart.push(product);
+    renderCart();
+    alert('Producto agregado');
+  }
+
+  function toggleCart(){
+    const c = document.getElementById('cart');
+    c.style.display = c.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function renderCart(){
+    const list = document.getElementById('cartItems');
+    list.innerHTML = '';
+    cart.forEach(p => {
+      const li = document.createElement('li');
+      li.textContent = '• ' + p;
+      list.appendChild(li);
+    });
+  }
+
+  function sendWhatsApp(){
+    if(cart.length === 0){alert('Carrito vacío');return;}
+    const text = 'Hola, quiero comprar:%0A' + cart.join('%0A');
+    window.open('https://wa.me/5215641546456?text=' + text,'_blank');
+  }
+</script>
+
+</body>
+</html>
