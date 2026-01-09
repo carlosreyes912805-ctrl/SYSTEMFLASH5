@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un mes contigo ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+    body{
+      background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card{
+      background:#fff;
+      max-width:900px;
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.15);
+      overflow:hidden;
+    }
+    header{
+      background:linear-gradient(120deg,#ff758c,#ff7eb3);
+      color:#fff;
+      text-align:center;
+      padding:50px 20px;
+    }
+    header h1{
+      font-family:'Playfair Display', serif;
+      font-size:2.8rem;
+      margin-bottom:10px;
+    }
+    header p{
+      font-size:1.2rem;
+      opacity:0.95;
+    }
+    section{
+      padding:40px 30px;
+    }
+    .message{
+      font-size:1.1rem;
+      line-height:1.8;
+      color:#444;
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:15px;
+      margin-bottom:40px;
+    }
+    .photo{
+   width: 300px;
+    }
+    .reasons{
+      background:#fff5f8;
+      border-radius:15px;
+      padding:30px;
+    }
+    .reasons h2{
+      text-align:center;
+      color:#ff5f8a;
+      margin-bottom:20px;
+      font-family:'Playfair Display', serif;
+    }
+    .reasons ul{
+      list-style:none;
+      max-width:600px;
+      margin:0 auto;
+    }
+    .reasons li{
+      background:#fff;
+      padding:15px 20px;
+      border-radius:10px;
+      margin-bottom:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      font-size:1rem;
+    }
+    footer{
+      text-align:center;
+      padding:30px 20px;
+      color:#666;
+      font-size:0.95rem;
+    }
+    footer span{
+      color:#ff5f8a;
+      font-weight:500;
+    }
+    @media(max-width:600px){
+      header h1{font-size:2.2rem;}
+    }
+      /* Corazones flotando */
+    .hearts{
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:1;
+    }
+    .heart{
+      position:absolute;
+      bottom:-20px;
+      width:20px;height:20px;
+      background:#ff5f8a;
+      transform:rotate(45deg);
+      animation:float 8s linear infinite;
+      opacity:0.7;
+    }
+    .heart::before,.heart::after{
+      content:"";
+      position:absolute;
+      width:20px;height:20px;
+      background:#ff5f8a;
+      border-radius:50%;
+    }
+    .heart::before{top:-10px;left:0;}
+    .heart::after{left:-10px;top:0;}
+    @keyframes float{
+      0%{transform:translateY(0) rotate(45deg);opacity:0.8;}
+      100%{transform:translateY(-110vh) rotate(45deg);opacity:0;}
+    }
+    .surprise{
+      text-align:center;
+      margin-top:40px;
+    }
+    .surprise button{
+      background:linear-gradient(120deg,#ff758c,#ff7eb3);
+      color:#fff;
+      border:none;
+      padding:15px 30px;
+      border-radius:30px;
+      font-size:1rem;
+      cursor:pointer;
+      box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    }
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      align-items:center;
+      justify-content:center;
+      z-index:10;
+    }
+    .modal-content{
+      background:#fff;
+      padding:30px;
+      border-radius:20px;
+      max-width:400px;
+      text-align:center;
+    }
+    .modal-content h3{
+      color:#ff5f8a;
+      margin-bottom:10px;
+      font-family:'Playfair Display', serif;
+    }
+    .close{
+      margin-top:20px;
+      display:inline-block;
+      color:#ff5f8a;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Música romántica -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5c2f0a3f7a.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+  <div class="hearts">
+    <div class="heart" style="left:10%;animation-duration:7s"></div>
+    <div class="heart" style="left:30%;animation-duration:9s"></div>
+    <div class="heart" style="left:50%;animation-duration:8s"></div>
+    <div class="heart" style="left:70%;animation-duration:10s"></div>
+    <div class="heart" style="left:90%;animation-duration:7.5s"></div>
+  </div>
+
+  <div class="card">
+    <header>
+      <h1> ❤️ Un mes contigo, Isayana ❤️</h1>
+      <p>9 de enero · Nuestro primer mes juntos</p>
+    </header>
+
+    <section>
+      <p class="message">
+Amor, hoy cumplimos un mes juntos y quería regalarte algo diferente, algo que naciera desde lo más profundo de mi corazón. 💕
+Isayana, en este tiempo me has enseñado que el amor se encuentra en los detalles más simples: en un mensaje inesperado, en una sonrisa sincera, en saber que estás ahí. Contigo he aprendido a sonreír sin motivo, a sentir calma con solo pensar en ti y a encontrar hogar en una persona.claro me ayudaste a ser mejor persona.
+<br><br>
+Cada día a tu lado se ha convertido en un recuerdo que quiero guardar para siempre. Me haces sentir acompañado, comprendido y querido de una forma que nunca había sentido. Cuando el mundo se vuelve pesado, tu presencia lo hace más ligero, y cuando dudo, tu amor me da fuerza.
+<br><br>
+Este primer mes es solo el comienzo de todo lo que quiero vivir contigo: más risas, más abrazos, más sueños compartidos y más momentos que solo tú y yo entenderemos. Gracias por ser tú, por elegirnos y por permitirme amarte. Quiero seguir caminando a tu lado, hoy, mañana y en todos los meses que estén por venir. ❤️
+<br><br>
+❤️ TE AMO CON TODO MI CORAZON❤️
+</p>
+
+      <div class="gallery">
+       
+        <img src="lodds.jpeg"class="photo"><br>
+       <img src="tem.jpeg"class="photo">
+      
+      </div>
+<div class="reasons">
+<h2> 💑 Razones por las que te amo 💑</h2>
+<ul>
+<li>Porque haces que todo sea más bonito.</li>
+<li>Porque contigo puedo ser yo mismo.</li>
+<li>Porque tu sonrisa me calma.</li>
+<li>Porque haces especiales los momentos simples.</li>
+<li>Porque quiero seguir sumando meses contigo.</li>
+<li>Porque me inspiras a ser mejor cada día.</li>
+<li>Porque me escuchas incluso cuando no sé qué decir.</li>
+<li>Porque tu forma de querer es sincera.</li>
+<li>Porque contigo el tiempo pasa volando.</li>
+<li>Porque me haces sentir en casa.</li>
+<li>Porque confío en ti.</li>
+<li>Porque tus abrazos lo arreglan todo.</li>
+<li>Porque compartimos sueños.</li>
+<li>Porque me haces reír de verdad.</li>
+<li>Porque quiero construir un futuro contigo.</li>
+
+</ul>
+            <div class="surprise">
+        <button onclick="document.getElementById('modal').style.display='flex'">Mensaje sorpresa 💌</button>
+      </div>
+    </div>
+    </section>
+
+    <footer>
+      <p>Con todo mi cariño,💕 <span> Carlos</span> 💕</p>
+    </footer>
+  </div>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h3>Isayana ❤️</h3>
+      <p>Este es solo nuestro primer mes, pero quiero que sean muchos más. Logremos juntos todo lo que soñamos y tener una familia. Gracias por existir y por elegirme cada día.<br>💖 Siempre seras tu Mi amor eterno. 💖</p>
+      <span class="close" onclick="document.getElementById('modal').style.display='none'">Cerrar</span>
+    </div>
+  </div>
+</body>
+</html>
